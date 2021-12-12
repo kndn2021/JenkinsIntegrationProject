@@ -58,6 +58,8 @@ public class JenkinsInte {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		logs.info("Screenshot taken successfully...");
 	}
 	
 	@Test
