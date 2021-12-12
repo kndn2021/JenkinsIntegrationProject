@@ -1,11 +1,15 @@
 package com.jenkinsCI;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
@@ -13,11 +17,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.google.common.io.Files;
+
 public class JenkinsInte {
 
 	WebDriver driver;
 	Logger logs;
-	
+	TakesScreenshot ts;
 	
 	@BeforeMethod
 	public void setDrivers()
@@ -42,6 +48,16 @@ public class JenkinsInte {
 		
 		driver.get("https://github.com/login");
 		logs.info("Url entered successfully...");
+		
+		ts = (TakesScreenshot)driver;
+		
+		File file = ts.getScreenshotAs(OutputType.FILE);
+		try {
+			Files.move(file, new File("C:\\Users\\Bhushan\\git\\JenkinsIntegration\\JenkinsIntegration\\test-output\\screenshot\\github.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@Test
@@ -55,6 +71,8 @@ public class JenkinsInte {
 		
 		driver.findElement(By.name("commit")).click();
 		logs.info("Clicked on submit button...");
+		
+		
 		
 	}
 	
