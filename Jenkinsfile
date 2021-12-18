@@ -11,13 +11,13 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 git 'https://github.com/kndn2021/JenkinsIntegrationProject.git'
+                def mavenPom = readMavenPom 'pom.xml'
                 withMaven {
-                    readpom = readMavenPom file: 'https://github.com/kndn2021/JenkinsIntegrationProject.git';
                   bat "mvn clean install"
                     //--file *.pom 
     }
             }
-
+            
             post {
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
