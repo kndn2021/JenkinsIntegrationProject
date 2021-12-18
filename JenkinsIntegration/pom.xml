@@ -7,13 +7,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
-
-		<!-- https://mvnrepository.com/artifact/org.lobobrowser/cobra -->
-<dependency>
-    <groupId>org.lobobrowser</groupId>
-    <artifactId>cobra</artifactId>
-    <version>0.98.4</version>
-</dependency>
 		
 		<dependency>
 			<groupId>org.apache.poi</groupId>
