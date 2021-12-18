@@ -13,6 +13,7 @@ pipeline {
                 git 'https://github.com/kndn2021/JenkinsIntegrationProject.git'
                     withMaven {
                     bat "mvn clean install"
+                     mvn – f <> compile
                  }
             }
 
