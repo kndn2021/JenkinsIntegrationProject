@@ -12,7 +12,8 @@ pipeline {
                 // Get some code from a GitHub repository
                 git 'https://github.com/kndn2021/JenkinsIntegrationProject.git'
                 withMaven {
-                  bat "mvn clean --file *.pom install"
+                  bat "mvn clean install"
+                    //--file *.pom 
     }
             }
 
