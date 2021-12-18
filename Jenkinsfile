@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
-            maven "Maven Repository" -clean
+            maven "Maven Repository" // -clean
     }
 
     stages {
@@ -11,6 +11,7 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 git 'https://github.com/kndn2021/JenkinsIntegrationProject.git'
+                sh "mvn clean install"
             }
 
             post {
