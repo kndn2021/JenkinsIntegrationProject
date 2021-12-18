@@ -11,7 +11,10 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 git 'https://github.com/kndn2021/JenkinsIntegrationProject.git'
-                sh "mvn clean install"
+                //sh "mvn clean install"
+                    withMaven {
+      sh "mvn clean verify"
+    }
             }
 
             post {
