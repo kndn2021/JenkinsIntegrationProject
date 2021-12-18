@@ -8,7 +8,7 @@ pipeline {
         stage ('Initialize') {
             steps {
                 sh '''
-                    echo "PATH = "
+                    echo "PATH = https://github.com/kndn2021/JenkinsIntegrationProject/tree/master/JenkinsIntegration"
                     echo "M2_HOME = Maven Repository"
                 ''' 
             }
