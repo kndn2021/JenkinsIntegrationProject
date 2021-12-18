@@ -4,6 +4,7 @@ pipeline {
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "Maven Repository"
+        mvn -f https://github.com/kndn2021/JenkinsIntegrationProject/tree/master/JenkinsIntegration/pom.xml clean isntall
     }
 
     stages {
