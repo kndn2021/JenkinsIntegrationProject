@@ -11,7 +11,7 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 git 'https://github.com/kndn2021/JenkinsIntegrationProject.git'
-                 maven "Maven Repository" clean install
+                 maven "Maven Repository"
             }
 
             post {
