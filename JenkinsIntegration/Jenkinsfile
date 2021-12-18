@@ -13,7 +13,7 @@ pipeline {
                 git 'https://github.com/kndn2021/JenkinsIntegrationProject.git'
                     withMaven {
                     bat "mvn clean install"
-                     mvn – f <> compile
+                     mvn – f <https://github.com/kndn2021/JenkinsIntegrationProject/blob/master/JenkinsIntegration/JenkinsIntegration/pom.xml> compile
                  }
             }
 
