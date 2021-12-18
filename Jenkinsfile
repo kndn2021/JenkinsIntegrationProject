@@ -13,7 +13,7 @@ pipeline {
                 git 'https://github.com/kndn2021/JenkinsIntegrationProject.git'
                 //sh "mvn clean install"
                     withMaven {
-      bat "mvn clean verify"
+      bat "mvn clean install"
     }
             }
 
