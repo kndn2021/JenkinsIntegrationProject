@@ -43,7 +43,7 @@ public class JenkinsInte {
 		else
 		{
 			System.out.println("No driver found");
-			System.exit(1;
+			System.exit(1);
 		}
 		
 		driver.manage().window().maximize();
