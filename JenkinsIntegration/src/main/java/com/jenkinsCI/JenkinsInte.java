@@ -26,7 +26,7 @@ public class JenkinsInte {
 	Logger logs;
 //	TakesScreenshot ts;
 	
-	@Parameters("BrowserType")
+	@Parameters("Browser")
 	@BeforeMethod
 	public void setDrivers(String browser)
 	{
