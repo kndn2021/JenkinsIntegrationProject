@@ -16,6 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.annotations.Parameters;
 
 import com.google.common.io.Files;
 
@@ -23,18 +24,27 @@ public class JenkinsInte {
 
 	WebDriver driver;
 	Logger logs;
-	TakesScreenshot ts;
+//	TakesScreenshot ts;
 	
+	@Parameters("BrowserType")
 	@BeforeMethod
-	public void setDrivers()
+	public void setDrivers(String browser)
 	{
 		logs = LogManager.getLogger(JenkinsInte.class);
 		DOMConfigurator.configure("log4j2.xml");
 		
-		System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
-		System.setProperty("webdriver.chrome.driver", "C:\\Automation\\Driver\\chromedriver.exe");
-		driver = new ChromeDriver();
-		logs.info("Chrome driver is initiated...");
+		if(browser.equalignorecase("Chrome"))
+		{
+			System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+			System.setProperty("webdriver.chrome.driver", "C:\\Automation\\Driver\\chromedriver.exe");
+			driver = new ChromeDriver();
+			logs.info("Chrome driver is initiated...");
+		}
+		else
+		{
+			System.out.println("No driver found");
+			System.exit();
+		}
 		
 		driver.manage().window().maximize();
 		logs.info("Screen is maximized...");
@@ -49,15 +59,15 @@ public class JenkinsInte {
 		driver.get("https://github.com/login");
 		logs.info("Url entered successfully...");
 		
-		ts = (TakesScreenshot)driver;
-		
-		File file = ts.getScreenshotAs(OutputType.FILE);
-		try {
-			Files.move(file, new File("C:\\Users\\Bhushan\\git\\JenkinsIntegration\\JenkinsIntegration\\test-output\\screenshot\\github.png"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	//	ts = (TakesScreenshot)driver;
+	//	
+	//	File file = ts.getScreenshotAs(OutputType.FILE);
+	//	try {
+	//		Files.move(file, new File("C:\\Users\\Bhushan\\git\\JenkinsIntegration\\JenkinsIntegration\\test-output\\screenshot\\github.png"));
+	//	} catch (IOException e) {
+	//		// TODO Auto-generated catch block
+	//		e.printStackTrace();
+	//	}
 		
 		logs.info("Screenshot taken successfully...");
 	}
