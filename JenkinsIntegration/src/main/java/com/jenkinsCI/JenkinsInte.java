@@ -26,7 +26,7 @@ public class JenkinsInte {
 	Logger logs;
 //	TakesScreenshot ts;
 	
-	@Parameters("Browser")
+	@Parameters({"BrowserType"})
 	@BeforeMethod
 	public void setDrivers(String browser)
 	{
@@ -43,7 +43,7 @@ public class JenkinsInte {
 		else
 		{
 			System.out.println("No driver found");
-			System.exit(1);
+		//	System.exit(1);
 		}
 		
 		driver.manage().window().maximize();
