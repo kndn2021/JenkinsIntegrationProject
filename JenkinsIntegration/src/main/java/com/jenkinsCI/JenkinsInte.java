@@ -33,7 +33,7 @@ public class JenkinsInte {
 		logs = LogManager.getLogger(JenkinsInte.class);
 		DOMConfigurator.configure("log4j2.xml");
 		
-		if(browser.equalignorecase("Chrome"))
+		if(browser.equalsIgnoreCase("Chrome"))
 		{
 			System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
 			System.setProperty("webdriver.chrome.driver", "C:\\Automation\\Driver\\chromedriver.exe");
@@ -43,7 +43,7 @@ public class JenkinsInte {
 		else
 		{
 			System.out.println("No driver found");
-			System.exit();
+			System.exit(1;
 		}
 		
 		driver.manage().window().maximize();
