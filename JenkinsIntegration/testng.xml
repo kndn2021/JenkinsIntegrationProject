@@ -3,8 +3,10 @@
 <suite name="Suite">
   <parameter name="BrowserType" value="Chrome"/>
   <test name="Test">
+    
     <classes>
       <class name="com.jenkinsCI.JenkinsInte"/>
     </classes>
+    
   </test> <!-- Test -->
 </suite> <!-- Suite -->
